@@ -89,7 +89,7 @@ class App extends React.Component {
         </div>
         <div 
           className="col-md-6 results-container"
-          // style= {{backgroundImage: `url(${this.getImage()})`}}
+          style= {{backgroundImage: `url(${this.getImage()})`}}
         >
           <WeatherInfo
             temperature={this.state.temperature}
