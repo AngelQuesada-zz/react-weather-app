@@ -1,3 +1,4 @@
+@import "colors";
 @import "media";
 @import "form";
 @import "weatherInfo";
@@ -8,6 +9,7 @@
 
 body {
   font-family: "Open Sans", serif;
+  background:$white;
 }
 
 #main-container {
@@ -15,7 +17,7 @@ body {
 }
 
 .form-container {
-  background-color: #0a2333; 
+  background-color: $blue; 
   height: 90vh;
   padding:50px;
   display:flex;
@@ -32,5 +34,18 @@ body {
   text-align: center;
   color: rgb(11, 3, 82);
   padding:15px 0px;
+
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: auto;
+  animation: animated_background 50s linear infinite;
 }
 
+@keyframes animated_background {
+  from {
+    background-position: 0 -170px;
+  }
+  to {
+    background-position: -1000px -170px;
+  }
+}

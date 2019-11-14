@@ -5,11 +5,11 @@
 input[type=text] {
   background-color: transparent;
   border: 0;
-  border-bottom: solid 1px #f16051;
+  border-bottom: solid 1px #FEF6EB;
   width: 100%;
   padding-bottom: 4px;
-  color: #fff !important;
-  font-weight: lighter;
+  color: #FEF6EB;
+  font-weight: bold;
   letter-spacing: 2px;
   margin-bottom: 30px;
   margin-right: 20px;
@@ -20,12 +20,15 @@ input[type=text] {
   outline: none;
 }
 
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px #2c3e50 inset;
-  -webkit-text-fill-color: #fff !important;
+input::placeholder {
+  color: #b4b4b4;
 }
 
-button:active {
+.btn.btn-get-weather {
+  background-color: #ed553b;
+  color: #FEF6EB;
+}
+.btn.btn-get-weather:active {
   outline: none;
 }
 
@@ -35,7 +38,7 @@ button:active {
   letter-spacing: 1px;
   font-weight: 200;
   margin-top: 2rem;
-  border: 1px solid white;
+  border: 1px solid #FEF6EB;
   padding: 1rem;
   border-radius: 5px;
 }
@@ -46,8 +49,9 @@ button:active {
 }
 
 #weather-info {
-  background: #6666664b;
+  background: #66666673;
   width: 100%;
+  color: white;
 }
 #weather-info .location-container {
   font-size: 2.7rem;
@@ -57,7 +61,6 @@ button:active {
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  color: #666666;
 }
 #weather-info .element {
   padding: 1rem;
@@ -67,10 +70,10 @@ button:active {
   display: flex;
   justify-content: center;
   border-left: 1px solid #a8a8a8;
-  color: #666666;
 }
 #weather-info .element.description {
   width: 40%;
+  border-left: 0px;
 }
 #weather-info .element .content {
   display: block;
@@ -80,7 +83,6 @@ button:active {
   text-transform: uppercase;
 }
 #weather-info .element .content .text {
-  color: #666666;
   float: left;
   width: 100%;
   font-size: 1.5rem;
@@ -95,11 +97,11 @@ button:active {
 }
 #weather-info .element .content .image i {
   font-size: 3.2rem;
-  color: #666666;
 }
 
 body {
   font-family: "Open Sans", serif;
+  background: #FEF6EB;
 }
 
 #main-container {
@@ -107,7 +109,7 @@ body {
 }
 
 .form-container {
-  background-color: #0a2333;
+  background-color: #20639b;
   height: 90vh;
   padding: 50px;
   display: flex;
@@ -124,6 +126,19 @@ body {
   text-align: center;
   color: #0b0352;
   padding: 15px 0px;
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: auto;
+  animation: animated_background 50s linear infinite;
+}
+
+@keyframes animated_background {
+  from {
+    background-position: 0 -170px;
+  }
+  to {
+    background-position: -1000px -170px;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -12,7 +12,7 @@ class Form extends Component {
             <form onSubmit = {this.props.loadWeather}>
                 <input type="text" name="city" placeholder="City..." />
                 <input type="text" name="country" placeholder="Country..." />
-                <button className="btn btn-info btn-block">Get Weather</button>
+                <button className="btn-get-weather btn btn-block">Get Weather</button>
                 {
                 this.props.error && 
                     <div className="error">{this.props.error}</div>

@@ -1,0 +1,17 @@
+{
+    "Thunderstorm":"thunderstorm.png",
+    "Drizzle":"drizzle.png",
+    "Rain":"rain.png",
+    "Snow":"snow.png",
+    "Mist":"mist.png",
+    "Smoke":"mist.png",
+    "Haze":"mist.png",
+    "Dust":"mist.png",
+    "Fog":"mist.png",
+    "Sand":"mist.png",
+    "Ash":"mist.png",
+    "Squall":"mist.png",
+    "Tornado":"mist.png",
+    "Clear":"clear.png",
+    "Clouds":"clouds.png"
+}

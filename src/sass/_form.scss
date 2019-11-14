@@ -2,11 +2,11 @@
 input[type="text"] {
     background-color: transparent;
     border: 0;
-    border-bottom: solid 1px #f16051;
+    border-bottom: solid 1px $white;
     width: 100%;
     padding-bottom: 4px;
-    color: #fff !important;
-    font-weight: lighter;
+    color: $white;
+    font-weight: bold;
     letter-spacing: 2px;
     margin-bottom: 30px;
     margin-right: 20px;
@@ -17,13 +17,18 @@ input[type="text"] {
     outline: none;
 }
 
-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px #2c3e50 inset;
-    -webkit-text-fill-color: #fff !important;
+input::placeholder {  
+    color:$light-grey;
 }
 
-button:active {
-    outline: none;
+.btn.btn-get-weather {
+
+    background-color: $red;
+    color:$white;
+
+    &:active {
+        outline: none;
+    } 
 }
     
 .error {
@@ -32,7 +37,7 @@ button:active {
     letter-spacing: 1px;
     font-weight: 200;
     margin-top:2rem;
-    border:1px solid white;
+    border:1px solid $white;
     padding:1rem;
     border-radius:5px;
 

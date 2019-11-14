@@ -9,53 +9,60 @@ class WeatherInfo extends Component {
 
     render() { 
 
-        return(
+        if (this.props.description){
 
-            <div id="weather-info">
-                <div className="location-container">
+            return(
+                
 
-                {
-                    this.props.country && this.props.city && 
-                    this.props.city+", "+this.props.country
-                }
+                <div id="weather-info">
+                    <div className="location-container">
 
-                </div> 
+                    {
+                        this.props.country && this.props.city && 
+                        this.props.city+", "+this.props.country
+                    }
 
-                {
-                    this.props.description && 
-                    <div className="element description">
-                        <div className="content">
-                            {this.props.description} 
-                            <img 
-                                src={"http://openweathermap.org/img/wn/"+this.props.icon+"@2x.png"}
-                                alt={this.props.description}>
-                            </img>
+                    </div> 
+
+                    {
+                        this.props.description && 
+                        <div className="element description">
+                            <div className="content">
+                                {this.props.description} 
+                                <img 
+                                    src={"http://openweathermap.org/img/wn/"+this.props.icon+"@2x.png"}
+                                    alt={this.props.description}>
+                                </img>
+                            </div>
                         </div>
-                    </div>
-                }
+                    }
 
-                {
-                    this.props.temperature && 
-                    <div className="element temperature">
-                        <div className="content ">
-                            <div className="text">{this.props.temperature} ºC</div>
-                            <div className="image"><i className="fas fa-thermometer-half"></i></div>
+                    {
+                        this.props.temperature && 
+                        <div className="element temperature">
+                            <div className="content ">
+                                <div className="text">{this.props.temperature} ºC</div>
+                                <div className="image"><i className="fas fa-thermometer-half"></i></div>
+                            </div>
                         </div>
-                    </div>
-                }
+                    }
 
-                {
-                    this.props.humidity && 
-                    <div className="element humidity">
-                        <div className="content">
-                            <div className="text">{this.props.humidity} %</div>
-                            <div className="image"><i className="fas fa-tint"></i></div>
+                    {
+                        this.props.humidity && 
+                        <div className="element humidity">
+                            <div className="content">
+                                <div className="text">{this.props.humidity} %</div>
+                                <div className="image"><i className="fas fa-tint"></i></div>
+                            </div>
                         </div>
-                    </div>
-                }
-            </div>
+                    }
+                </div>
+                
+            )
 
-        )
+        }else{
+            return ("")
+        }
 
     }
 
