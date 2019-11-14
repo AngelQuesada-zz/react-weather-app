@@ -1,0 +1,50 @@
+
+input[type="text"] {
+    background-color: transparent;
+    border: 0;
+    border-bottom: solid 1px #f16051;
+    width: 100%;
+    padding-bottom: 4px;
+    color: #fff !important;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+input[type="text"] { 
+    outline: none;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #2c3e50 inset;
+    -webkit-text-fill-color: #fff !important;
+}
+
+button:active {
+    outline: none;
+}
+    
+.error {
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 200;
+    margin-top:2rem;
+    border:1px solid white;
+    padding:1rem;
+    border-radius:5px;
+
+    &::before{
+        font-family:"Font Awesome 5 Free";
+        content: "\f057";
+        margin-right:1rem;
+    }
+}
+
+  
+
+  
+
+  
