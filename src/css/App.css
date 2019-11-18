@@ -2,7 +2,12 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather:100,200,300,300i,400,400i,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,700");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
-input[type=text] {
+form.city-form {
+  width: 100%;
+  min-width: 300px;
+  position: relative;
+}
+form.city-form input[type=text] {
   background-color: transparent;
   border: 0;
   border-bottom: solid 1px #FEF6EB;
@@ -11,28 +16,52 @@ input[type=text] {
   color: #FEF6EB;
   font-weight: bold;
   letter-spacing: 2px;
-  margin-bottom: 30px;
-  margin-right: 20px;
   font-size: 20px;
 }
-
-input[type=text] {
+form.city-form input[type=text] {
   outline: none;
 }
-
-input::placeholder {
+form.city-form input::placeholder {
   color: #b4b4b4;
 }
-
-.btn.btn-get-weather {
-  background-color: #ed553b;
-  color: #FEF6EB;
+form.city-form .btn {
+  background: #ed553b;
+  margin-top: 30px;
 }
-.btn.btn-get-weather:active {
+form.city-form .btn:active {
   outline: none;
 }
-
-.error {
+form.city-form .city-list-container {
+  background: white;
+  position: absolute;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+form.city-form .city-list-container .element {
+  border-bottom: 1px solid #a1a1a1;
+  float: left;
+  width: 100%;
+  padding: 0.8rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+form.city-form .city-list-container .element:hover {
+  background: #d3d3d3;
+}
+form.city-form .city-list-container .element .place-name {
+  float: left;
+}
+form.city-form .city-list-container .element .place-type {
+  float: left;
+  width: 100%;
+}
+form.city-form .city-list-container .element .place-type span {
+  background: #20639b;
+  color: white;
+  letter-spacing: 2px;
+}
+form.city-form .error {
   color: #fff;
   font-size: 20px;
   letter-spacing: 1px;
@@ -42,7 +71,7 @@ input::placeholder {
   padding: 1rem;
   border-radius: 5px;
 }
-.error::before {
+form.city-form .error::before {
   font-family: "Font Awesome 5 Free";
   content: "";
   margin-right: 1rem;
@@ -114,6 +143,7 @@ body {
   padding: 50px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .results-container {
@@ -134,10 +164,10 @@ body {
 
 @keyframes animated_background {
   from {
-    background-position: 0 -170px;
+    background-position: 0 -135px;
   }
   to {
-    background-position: -1000px -170px;
+    background-position: -1000px -135px;
   }
 }
 
