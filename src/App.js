@@ -53,12 +53,13 @@ class App extends React.Component {
     const country = e.target.elements.city.attributes.data_country_code.value
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${api_key}`)
     const response = await api_call.json()
-    
+
     if(city && country){
-      if(!response.length > 0){
+      if(response.cod == "404"){
         this.setState({
           error: `No results for ${this.state.city}, ${this.state.country}`
         })
+        return false
       }
       this.setState({
         temperature: response.main.temp,
@@ -75,8 +76,6 @@ class App extends React.Component {
         error: "Please, fill the blanks"
       })
     }
-    
-    console.log(response)
     
   }
 
