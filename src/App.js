@@ -4,6 +4,7 @@ import './css/App.css';
 
 // components
 
+import Navbar from './components/navbar'
 import Form from './components/form'
 import WeatherInfo from './components/weatherInfo'
 
@@ -83,7 +84,8 @@ class App extends React.Component {
   render() {
 
   return (
-  <div>
+    <div>
+    <Navbar/>
     <div id="main-container" className="container">
       <div className="row">
         <div className="col-md-6 form-container">

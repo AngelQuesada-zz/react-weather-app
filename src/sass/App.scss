@@ -1,5 +1,6 @@
 @import "colors";
 @import "media";
+@import "navbar";
 @import "form";
 @import "weatherInfo";
 
@@ -9,16 +10,16 @@
 
 body {
   font-family: "Open Sans", serif;
-  background:$white;
+  background: $wazuh_blue;
 }
 
 #main-container {
-  margin-top:3rem;
+  margin-top:12vh;
 }
 
 .form-container {
-  background-color: $blue; 
-  height: 90vh;
+  background-color: $wazuh_white; 
+  height: 80vh;
   padding:50px;
   display:flex;
   align-items:center;
@@ -26,7 +27,7 @@ body {
 }
 
 .results-container {
-  height: 90vh;
+  height: 80vh;
   background: #ffffff;
   background-size: cover;
   display: flex;

@@ -7,25 +7,23 @@ form.city-form {
     input[type="text"] {
         background-color: transparent;
         border: 0;
-        border-bottom: solid 1px $white;
+        border-bottom: solid 3px $wazuh_blue;
         width: 100%;
         padding-bottom: 4px;
-        color: $white;
+        color: $wazuh_blue;
         font-weight: bold;
         letter-spacing: 2px;
-        font-size: 20px;
-    }
-    
-    input[type="text"] { 
+        font-size: 1.4rem;
         outline: none;
     }
-    
+
     input::placeholder {  
-        color:$light-grey;
+        color:$wazuh_blue;
+        opacity:.5;
     }
     
     .btn {
-        background:$red;
+        background:$wazuh_blue;
         margin-top:30px;
 
         &:active {
@@ -60,7 +58,7 @@ form.city-form {
                 width:100%;
                 
                 span{
-                    background:$blue;
+                    background:$wazuh_yellow;
                     color:white;
                     letter-spacing: 2px;
                 }
@@ -74,7 +72,7 @@ form.city-form {
         letter-spacing: 1px;
         font-weight: 200;
         margin-top:2rem;
-        border:1px solid $white;
+        border:1px solid $wazuh_white;
         padding:1rem;
         border-radius:5px;
     

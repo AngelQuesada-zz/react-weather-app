@@ -1,0 +1,11 @@
+.navbar{
+    img{
+        width:125px;
+    }
+    ul{
+        a.nav-link{
+            color:$wazuh_blue!important;
+            font-weight:500;
+        }
+    }
+}

@@ -58,7 +58,7 @@ class Form extends Component {
         return (
             <form className="city-form" onSubmit={this.props.loadWeather}>
                 <input
-                    autocomplete="false"
+                    autoComplete="false"
                     onChange={this.handleChange} 
                     data_city={this.state.selected_city}
                     data_country_code={this.state.selected_country_code}
@@ -85,7 +85,7 @@ class Form extends Component {
                     )
                 }
                 </div>
-                <button className="btn-get-weather btn-danger btn btn-block">Get Weather</button>
+                <button className="btn-get-weather btn-primary btn btn-block">Get Weather</button>
                 {
                 this.props.error && 
                     <div className="error">{this.props.error}</div>
