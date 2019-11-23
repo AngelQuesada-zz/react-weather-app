@@ -58,7 +58,7 @@ class Form extends Component {
         return (
             <form className="city-form" onSubmit={this.props.loadWeather}>
                 <input
-                    autocomplete="false"
+                    autoComplete="off"
                     onChange={this.handleChange} 
                     data_city={this.state.selected_city}
                     data_country_code={this.state.selected_country_code}
