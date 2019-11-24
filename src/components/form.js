@@ -8,12 +8,14 @@ class Form extends Component {
             suggested_cities:[],
             selected_city:"",
             selected_country_code:"",
-            show_list:false
+            show_list:false,
+            timeoutsearch:undefined
         }
     }
 
     handleChange = async(event) => {
         const text = event.target.value
+        
         if (text.length < 2) {
             this.setState({
                 suggested_cities:[],
@@ -21,16 +23,27 @@ class Form extends Component {
             })
             return false
         }
-        const url = `http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=5&offset=0&languageCode=es&namePrefix=${text}`
-        const api_call = await fetch(url)
-        const response = await api_call.json()
-        const data = response.data
-        const state_data = data.length > 0 ? data:[]
-        console.log(data)
+        if(this.state.timeoutsearch){
+            clearTimeout(this.state.timeoutsearch)
+        }
+
         this.setState({
-            suggested_cities:state_data,
-            show_list:true,
+            timeoutsearch:setTimeout(async ()=>{
+                const url = `http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=5&offset=0&languageCode=es&namePrefix=${text}`
+                const api_call = await fetch(url)
+                const response = await api_call.json()
+                const data = response.data
+                const state_data = data.length > 0 ? data:[]
+                
+                this.setState({
+                    suggested_cities:state_data,
+                    show_list:true,
+                    timeoutsearch:undefined
+                })
+            }, 1500)
         })
+
+
     }
 
     clickElementCityList = (event) => {
@@ -41,7 +54,7 @@ class Form extends Component {
         const input_element = document.getElementById('input_city')
         const btn_get_weather = document.getElementsByClassName('btn-get-weather')[0]
 
-        input_element.value = `${city}, ${country}`
+        input_element.value = ""
 
         this.setState({
             suggested_cities:[],
@@ -54,17 +67,33 @@ class Form extends Component {
 
     }
 
+    handleSubmit = (event) => {
+
+        event.preventDefault()
+
+        console.log(event.target)
+
+        return this.props.loadWeather(event)
+
+    }
+
+    avoidSubmitWithEnterKey = (e) => {
+        if (e.key === 'Enter') 
+        e.preventDefault();
+    }
+
     render (){
         return (
-            <form className="city-form" onSubmit={this.props.loadWeather}>
+            <form className="city-form" onSubmit={this.handleSubmit}>
                 <input
+                    onKeyPress={this.avoidSubmitWithEnterKey}
                     autoComplete="off"
                     onChange={this.handleChange} 
                     data_city={this.state.selected_city}
                     data_country_code={this.state.selected_country_code}
                     type="text" 
                     name="city" 
-                    placeholder="City..."
+                    placeholder="Look for a city..."
                     id="input_city"
                 />
                 <div className='city-list-container'>
@@ -85,7 +114,13 @@ class Form extends Component {
                     )
                 }
                 </div>
-                <button className="btn-get-weather btn-danger btn btn-block">Get Weather</button>
+                {
+                    this.state.timeoutsearch &&
+                    <div className="text-center mt-2 loading-icon-container">    
+                        <i className="fas fa-spinner fa-spin fa-2x"></i>
+                    </div>
+                }
+                <button className="btn-get-weather d-none">Get Weather</button>
                 {
                 this.props.error && 
                     <div className="error">{this.props.error}</div>

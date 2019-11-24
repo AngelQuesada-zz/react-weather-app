@@ -1,0 +1,27 @@
+.table{
+
+    margin-top:1rem;
+    width:100%;
+    background:$white;
+    float:left;
+
+    td.icon{
+        padding-top:0px;
+        img{
+            max-width: 37px;
+            margin-top: 5px;
+            background:#acacac;
+            border-radius:50%;
+        }
+    }
+
+    th {
+        color:$blue;
+        i {
+            margin-left:3px;
+            color:$blue;
+        }
+    }
+}
+ 
+

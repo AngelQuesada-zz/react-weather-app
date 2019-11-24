@@ -2,6 +2,7 @@
 @import "media";
 @import "form";
 @import "weatherInfo";
+@import "historyTable";
 
 @import url('https://fonts.googleapis.com/css?family=Merriweather:100,200,300,300i,400,400i,700');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700');
@@ -14,32 +15,34 @@ body {
 
 #main-container {
   margin-top:3rem;
+  
+  .form-container {
+    background-color: $blue; 
+    height: 90vh;
+    padding:50px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction:column;
+  }
+
+  .results-container {
+    height: 90vh;
+    background: #ffffff;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(11, 3, 82);
+    padding:15px 0px;
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-size: auto;
+    animation: animated_background 50s linear infinite;
+  }
 }
 
-.form-container {
-  background-color: $blue; 
-  height: 90vh;
-  padding:50px;
-  display:flex;
-  align-items:center;
-  justify-content: center;
-}
-
-.results-container {
-  height: 90vh;
-  background: #ffffff;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: rgb(11, 3, 82);
-  padding:15px 0px;
-  background-repeat: repeat;
-  background-position: 0 0;
-  background-size: auto;
-  animation: animated_background 50s linear infinite;
-}
 
 @keyframes animated_background {
   from {
