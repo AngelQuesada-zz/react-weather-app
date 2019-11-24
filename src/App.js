@@ -7,6 +7,7 @@ import './css/App.css';
 import Navbar from './components/navbar'
 import Form from './components/form'
 import WeatherInfo from './components/weatherInfo'
+import HistoryTable from './components/historyTable'
 
 // data
 
@@ -32,6 +33,7 @@ class App extends React.Component {
       description: undefined,
       error: undefined,
       weather_main: undefined,
+      weather_history:[]
     }
   }
 
@@ -48,7 +50,7 @@ class App extends React.Component {
 
   getWeather = async (e) => {
 
-    e.preventDefault();
+    e.preventDefault()
 
     const city = e.target.elements.city.attributes.data_city.value
     const country = e.target.elements.city.attributes.data_country_code.value
@@ -56,28 +58,59 @@ class App extends React.Component {
     const response = await api_call.json()
 
     if(city && country){
-      if(response.cod == "404"){
+
+      if(response.cod === "404"){
         this.setState({
-          error: `No results for ${this.state.city}, ${this.state.country}`
+          error: `No results for that city`
         })
         return false
       }
-      this.setState({
+
+      const new_weather = {
         temperature: response.main.temp,
         city: city,
         country: country,
         humidity: response.main.humidity,
         description: response.weather[0].description,
         icon: response.weather[0].icon,
-        weather_main: response.weather[0].main,
+        weather_main:response.weather[0].main
+      }
+
+      const weather_history = this.state.weather_history
+
+      if (weather_history.length == 5) weather_history.pop()
+
+      weather_history.unshift(new_weather)
+      
+      this.setState({
+        temperature: new_weather.temperature,
+        city: new_weather.city,
+        country: new_weather.country,
+        humidity: new_weather.humidity,
+        description: new_weather.description,
+        icon: new_weather.icon,
+        weather_main: new_weather.weather_main,
+        weather_history:weather_history,
         error: ""
       })
+
     }else{
       this.setState({
         error: "Please, fill the blanks"
       })
     }
     
+  }
+
+  historyTable = () => {
+    const weather_history = this.state.weather_history
+    if (weather_history.length > 0){
+      return (
+      <HistoryTable 
+        weather_history={this.state.weather_history}
+      />
+      )
+    }
   }
 
   render() {
@@ -92,6 +125,7 @@ class App extends React.Component {
             loadWeather={this.getWeather}
             error={this.state.error}
           />
+          {this.historyTable()}
         </div>
         <div 
           className="col-md-6 results-container"

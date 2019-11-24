@@ -21,6 +21,12 @@ form.city-form {
         color:$wazuh_blue;
         opacity:.5;
     }
+
+    .loading-icon-container{
+        position:absolute;
+        top:-10px;
+        right:0;
+    }
     
     .btn {
         background:$wazuh_blue;
