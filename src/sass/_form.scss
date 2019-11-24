@@ -73,12 +73,12 @@ form.city-form {
     }
         
     .error {
-        color: #fff;
+        color: $wazuh_grey;
         font-size: 20px;
         letter-spacing: 1px;
         font-weight: 200;
         margin-top:2rem;
-        border:1px solid $wazuh_white;
+        border:1px solid $wazuh_grey;
         padding:1rem;
         border-radius:5px;
     

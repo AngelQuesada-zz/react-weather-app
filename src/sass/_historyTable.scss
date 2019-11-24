@@ -2,7 +2,7 @@
 
     margin-top:1rem;
     width:100%;
-    background:$white;
+    background:$wazuh_white;
     float:left;
 
     td.icon{
@@ -16,10 +16,10 @@
     }
 
     th {
-        color:$blue;
+        color:$wazuh_blue;
         i {
             margin-left:3px;
-            color:$blue;
+            color:$wazuh_blue;
         }
     }
 }

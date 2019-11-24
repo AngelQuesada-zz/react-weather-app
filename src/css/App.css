@@ -74,12 +74,12 @@ form.city-form .city-list-container .element .place-type span {
   letter-spacing: 2px;
 }
 form.city-form .error {
-  color: #fff;
+  color: #6D6D6D;
   font-size: 20px;
   letter-spacing: 1px;
   font-weight: 200;
   margin-top: 2rem;
-  border: 1px solid #f3f3f3;
+  border: 1px solid #6D6D6D;
   padding: 1rem;
   border-radius: 5px;
 }
